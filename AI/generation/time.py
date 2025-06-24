@@ -1,6 +1,6 @@
 import json
 
-command = "notify-send Current_Time $(date +%T)"
+command = "notify-send Time $(date +%T)"
 
 base = ["time", "clock", "current time", "time now"]
 actions = [
