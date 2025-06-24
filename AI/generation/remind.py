@@ -27,8 +27,7 @@ for task in tasks:
                 )
                 output[instruction] = bash_cmd
 
-# Save to file
 with open("../data/remind.json", "w") as f:
     json.dump(output, f, indent=4)
 
-print(f"✅ Generated {len(output)} reminders (every 20 mins for each task).")
+print(f"✅ Generated {len(output)} reminders")

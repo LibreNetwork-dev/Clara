@@ -16,6 +16,7 @@ rm -rf lua-5.4.8
 rm -rf lua-5.4.8.tar.gz
 
 cd AI
+rm -rf data
 mkdir data
 cd generation
 python gen.py

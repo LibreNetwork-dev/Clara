@@ -1,5 +1,4 @@
 import json
-import time
 
 sites = {
     "google.com": "https://google.com",

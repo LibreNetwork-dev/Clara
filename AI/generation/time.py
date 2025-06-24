@@ -24,4 +24,4 @@ final = {v: command for v in sorted(variants)}
 with open("../data/time.json", "w") as f:
     json.dump(final, f, indent=4)
 
-print(f"✅ Saved {len(final)} command variants to 'time_commands.json'")
+print(f"✅ Saved {len(final)} command variants to 'time.json'")
