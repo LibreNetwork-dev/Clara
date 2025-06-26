@@ -2,10 +2,8 @@ import json
 
 tasks = [
     "do the thing",
-    "walk the dog",
-    "check the email",
+    "walk my dog",
     "make coffee",
-    "start coding",
     "water the plants",
     "feed the cat",
     "take a break",
@@ -16,8 +14,8 @@ tasks = [
 output = {}
 
 for task in tasks:
-    for hour in range(1, 13):  # 1 to 12
-        for minute in range(0, 60, 20):  # Every 20 minutes: 00, 20, 40
+    for hour in range(1, 13):  
+        for minute in range(0, 60, 20):
             for meridiem in ["AM", "PM"]:
                 time_str = f"{hour}:{minute:02d} {meridiem}"
                 instruction = f"At {time_str}, remind me to {task}"
@@ -30,4 +28,4 @@ for task in tasks:
 with open("../data/remind.json", "w") as f:
     json.dump(output, f, indent=4)
 
-print(f"✅ Generated {len(output)} reminders")
+print(f"✅ Generated {len(output)} i/o pairs")

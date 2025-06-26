@@ -1,3 +1,5 @@
+# THIS IS WHAT YOU ARE SUPPOSED TO USE CHATGPT FOR, NOT MAIN PROJET CODE 
+# THANK YOU FOR COMING TO MY TED TALK
 import json
 
 sites = {
@@ -21,42 +23,6 @@ sites = {
     "nytimes": "https://nytimes.com",
     "quora": "https://quora.com",
     "medium": "https://medium.com",
-    "twitch": "https://twitch.tv",
-    "etsy": "https://etsy.com",
-    "tripadvisor": "https://tripadvisor.com",
-    "weather": "https://weather.com",
-    "microsoft": "https://microsoft.com",
-    "apple": "https://apple.com",
-    "adobe": "https://adobe.com",
-    "dropbox": "https://dropbox.com",
-    "salesforce": "https://salesforce.com",
-    "hulu": "https://hulu.com",
-    "discord": "https://discord.com",
-    "slack": "https://slack.com",
-    "coursera": "https://coursera.org",
-    "udemy": "https://udemy.com",
-    "khanacademy": "https://khanacademy.org",
-    "stackexchange": "https://stackexchange.com",
-    "bitbucket": "https://bitbucket.org",
-    "gitlab": "https://gitlab.com",
-    "theguardian": "https://theguardian.com",
-    "washingtonpost": "https://washingtonpost.com",
-    "aljazeera": "https://aljazeera.com",
-    "forbes": "https://forbes.com",
-    "techcrunch": "https://techcrunch.com",
-    "wired": "https://wired.com",
-    "buzzfeed": "https://buzzfeed.com",
-    "9gag": "https://9gag.com",
-    "soundcloud": "https://soundcloud.com",
-    "nasa": "https://nasa.gov",
-    "nih": "https://nih.gov",
-    "dictionary": "https://dictionary.com",
-    "thesaurus": "https://thesaurus.com",
-    "nationalgeographic": "https://nationalgeographic.com",
-    "goodreads": "https://goodreads.com",
-    "yelp": "https://yelp.com",
-    "glassdoor": "https://glassdoor.com",
-    "indeed": "https://indeed.com",
 }
 
 verbs = [
@@ -68,19 +34,6 @@ typos = {
     "google": ["gogle", "gooogle", "goo gle"],
     "youtube": ["youtub", "yutube"],
     "facebook": ["fb", "facebok", "face book"],
-    "instagram": ["insta", "instgram", "instagrem"],
-    "reddit": ["rddit", "reddt", "reditt"],
-    "github": ["git hub", "githb", "gitub"],
-    "twitter": ["twiter", "twittter"],
-    "wikipedia": ["wikipediaa", "wikipedea"],
-    "duckduckgo": ["duck duck go", "duckduckgo.com"],
-    "stackoverflow": ["stack overflow"],
-    "paypal": ["paypa", "paypel"],
-    "imdb": ["imbd", "imdbb"],
-    "linkedin": ["linkdin", "linkdln"],
-    "pinterest": ["pintrest", "pinterst"],
-    "netflix": ["netflx", "netflik"],
-    "spotify": ["spotfy", "spotif"],
 }
 
 def generate_site_phrases(site, url):
@@ -112,7 +65,7 @@ def main():
     with open("../data/browse.json", "w", encoding="utf-8") as f:
         json.dump(all_phrases, f, indent=4, ensure_ascii=False)
 
-    print(f"Saved {count} input-output pairs to site_phrases.json")
+    print(f"Saved {count} input-output pairs")
 
 if __name__ == "__main__":
     main()

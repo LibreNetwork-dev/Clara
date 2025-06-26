@@ -11,7 +11,7 @@ model.to(device)
 
 def generate_command(instruction):
     inputs = tokenizer(instruction, return_tensors="pt").to(device)
-    outputs = model.generate(**inputs, max_length=64)
+    outputs = model.generate(**inputs, max_length=120)
     command = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return command
 
