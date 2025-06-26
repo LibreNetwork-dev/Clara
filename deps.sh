@@ -1,25 +1,24 @@
 set -e
 
-
 install_debian() {
   sudo apt update
-  sudo apt install -y mpv
+  sudo apt install -y mpv wl-clipboard xclip
 }
 
 install_fedora() {
-  sudo dnf install -y mpv
+  sudo dnf install -y mpv wl-clipboard xclip
 }
 
 install_arch() {
-  sudo pacman -Sy --noconfirm mpv
+  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip
 }
 
 install_alpine() {
-  sudo apk add mpv
+  sudo apk add mpv wl-clipboard xclip
 }
 
 install_opensuse() {
-  sudo zypper install -y mpv
+  sudo zypper install -y mpv wl-clipboard xclip
 }
 
 if [ -f /etc/os-release ]; then
@@ -42,12 +41,12 @@ if [ -f /etc/os-release ]; then
       ;;
     *)
       echo "Unsupported or unknown distro: $ID"
-      echo "Please install mpv manually."
+      echo "please install deps manually"
       exit 1
       ;;
   esac
-    pip install --upgrade pip
-    pip install sentence-transformers torch
+  pip install --upgrade pip
+  pip install sentence-transformers torch
 else
   echo "cant detect distro (/etc/os-release not found)"
   exit 1

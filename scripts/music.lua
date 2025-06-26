@@ -12,8 +12,10 @@ function play(query)
 
     local cachePath = "./cache/music/" .. vidId .. ".mp4"
     os.execute("pkill mpv")
+    -- just wait until it dies so no race condition happens
     while os.execute("pgrep mpv > /dev/null") == 0 do end
     if fileExists(cachePath) then
+        
         local res = os.execute("mpv --no-video '" .. cachePath .. "'") 
         if (res ~= 0) then
             -- re dl if the file is malformed

@@ -9,5 +9,8 @@ function calc(expr)
     if not f then return nil, "Parse error: " .. err end
     local ok, result = pcall(f)
     if not ok then return nil, "Runtime error: " .. result end
-    return result
+    os.execute(string.format(
+        "echo -n '%s' | (command -v wl-copy &>/dev/null && wl-copy || xclip -selection clipboard)", 
+        tostring(result)
+    ))
 end

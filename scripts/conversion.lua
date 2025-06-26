@@ -27,6 +27,9 @@ function convert(value_str, from_unit, to_unit)
     local key = from_unit:lower() .. "_to_" .. to_unit:lower()
     local factor = conversion_factors[key]
     if not factor then return nil, "Unsupported conversion: " .. from_unit .. " to " .. to_unit end
-  
-    return value * factor
+        -- copy the result to the clipboard
+    os.execute(string.format(
+        "echo -n '%s' | (command -v wl-copy &>/dev/null && wl-copy || xclip -selection clipboard)", 
+        tostring(value * factor)
+    ))
 end
