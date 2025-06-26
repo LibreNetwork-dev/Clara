@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, Trainer, Training
 
 from datasets import Dataset
 
-file_paths = ["data/browse.json", "data/music.json", "data/remind.json"]  
+file_paths = ["data/browse.json", "data/music.json", "data/math.json", "data/conversion.json", "data/mcontrol.json"]  
 
 combined_data = {}
 

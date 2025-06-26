@@ -26,10 +26,20 @@ cd ..
 rm -rf yt-dlp
 
 
+cd AI
+rm -rf data
+mkdir data
+cd generation
+python gen.py
+python conversion.py
+python music.py
+python math.py
+python mcontrol.py
 
+cd ..
+python train.py
+cd ..
 
-# THIS DOES NOT INCLUDE TRAINING (For obvious reasons)
-# SO THE PACKAGING IS BROKEN IF YOU DONT RUN THIS SCRIPT, TRAIN AND RUN THIS SCRIPT AGAIN
 # package that stuff together 
 rm -rf dist
 mkdir dist 
@@ -37,11 +47,5 @@ cp -r bin dist/bin
 cp -r scripts dist/scripts 
 cp -r AI/fine_tuned dist/fine_tuned
 cp -r AI/exec.py dist/exec.py
+mkdir -p dist/cache/music
 
-cd AI
-rm -rf data
-mkdir data
-cd generation
-python gen.py
-python remind.py
-python music.py
