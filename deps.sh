@@ -1,24 +1,25 @@
+#!/bin/bash
 set -e
 
 install_debian() {
   sudo apt update
-  sudo apt install -y mpv wl-clipboard xclip
+  sudo apt install -y mpv wl-clipboard xclip make gcc libreadline-dev
 }
 
 install_fedora() {
-  sudo dnf install -y mpv wl-clipboard xclip
+  sudo dnf install -y mpv wl-clipboard xclip make gcc readline-devel
 }
 
 install_arch() {
-  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip
+  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip base-devel
 }
 
 install_alpine() {
-  sudo apk add mpv wl-clipboard xclip
+  sudo apk add mpv wl-clipboard xclip make gcc readline-dev musl-dev
 }
 
 install_opensuse() {
-  sudo zypper install -y mpv wl-clipboard xclip
+  sudo zypper install -y mpv wl-clipboard xclip make gcc readline-devel
 }
 
 if [ -f /etc/os-release ]; then
@@ -46,7 +47,7 @@ if [ -f /etc/os-release ]; then
       ;;
   esac
   pip install --upgrade pip
-  pip install sentence-transformers torch
+  pip install sentence-transformers torch datasets transformers[torch]
 else
   echo "cant detect distro (/etc/os-release not found)"
   exit 1
