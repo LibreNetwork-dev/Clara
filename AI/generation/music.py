@@ -1,10 +1,6 @@
 import json
 
 def generate_variations(songs):
-    """
-    songs: list of tuples (song_name, artist_name)
-    returns: dict mapping input phrases to output commands
-    """
     outputs = {}
 
     prefixes = [

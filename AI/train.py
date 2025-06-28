@@ -17,7 +17,7 @@ data = [{"input": k, "output": v} for k, v in combined_data.items()]
 
 dataset = Dataset.from_list(data)
 
-model_name = "google/flan-t5-base"
+model_name = "google/flan-t5-small"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
