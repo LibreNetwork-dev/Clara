@@ -1,3 +1,12 @@
+# Uninstallation 
+1. Run install/uninstall.sh
+
+# Installation
+WARNING: If you have clara installed already, you will need to run the uninstallation script
+1. First of all, build. See instructions bellow   
+2. Then, run install/install.sh    
+
+
 # Building 
 WARNING: This only builds+works on linux (unless someone adds windows support in a PR)    
 1. run ./deps.sh
