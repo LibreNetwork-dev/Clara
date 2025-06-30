@@ -35,6 +35,7 @@ python conversion.py
 python music.py
 python math.py
 python mcontrol.py
+python timer.py
 
 cd ..
 python train.py

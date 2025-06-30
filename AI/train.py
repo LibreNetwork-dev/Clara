@@ -4,7 +4,14 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, Trainer, Training
 
 from datasets import Dataset
 
-file_paths = ["data/browse.json", "data/music.json", "data/math.json", "data/conversion.json", "data/mcontrol.json"]  
+file_paths = [
+    "data/browse.json",
+    "data/music.json",
+    "data/math.json",
+    "data/conversion.json",
+    "data/mcontrol.json",
+    "data/timer.json"
+]  
 
 combined_data = {}
 
@@ -17,7 +24,7 @@ data = [{"input": k, "output": v} for k, v in combined_data.items()]
 
 dataset = Dataset.from_list(data)
 
-model_name = "google/flan-t5-small"
+model_name = "google/flan-t5-base"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
@@ -35,7 +42,7 @@ dataset = dataset.map(preprocess, batched=True)
 # inc epochs to ~5 for prod
 training_args = TrainingArguments(
     output_dir="./results",
-    num_train_epochs=2,
+    num_train_epochs=3,
     per_device_train_batch_size=8,
     logging_dir="./logs",
     logging_steps=10,
