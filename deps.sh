@@ -3,23 +3,23 @@ set -e
 
 install_debian() {
   sudo apt update
-  sudo apt install -y mpv wl-clipboard xclip make gcc libreadline-dev python3.13-dev
+  sudo apt install -y mpv wl-clipboard xclip make gcc libreadline-dev python3.13-dev yt-dlp
 }
 
-install_fedora() {
-  sudo dnf install -y mpv wl-clipboard xclip make gcc readline-devel python3.13-devel
+install_fedora() { 
+  sudo dnf install -y mpv wl-clipboard xclip make gcc readline-devel python3.13-devel yt-dlp
 }
 
 install_arch() {
-  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip base-devel python
+  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip base-devel python yt-dlp
 }
 
 install_alpine() {
-  sudo apk add mpv wl-clipboard xclip make gcc readline-dev musl-dev python3-dev 
+  sudo apk add mpv wl-clipboard xclip make gcc readline-dev musl-dev python3-dev yt-dlp
 }
 
 install_opensuse() {
-  sudo zypper install -y mpv wl-clipboard xclip make gcc readline-devel python3-devel
+  sudo zypper install -y mpv wl-clipboard xclip make gcc readline-devel python3-devel yt-dlp
 }
 
 if [ -f /etc/os-release ]; then

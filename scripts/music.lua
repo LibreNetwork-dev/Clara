@@ -5,7 +5,8 @@ end
 
 
 function play(query)
-    local dlpPath = '../bin/yt-dlp'
+    -- just change it for now
+    local dlpPath = 'yt-dlp'
     local handle = io.popen(dlpPath.." --get-id --quiet 'ytsearch:" .. query .. "'")
     local vidId = handle:read("*l")
     handle:close()

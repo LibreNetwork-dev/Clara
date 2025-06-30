@@ -1,0 +1,14 @@
+# clara.service
+[Unit]
+Description=A lightweight computer assistant
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/bin/clara/
+ExecStart=/usr/bin/python exec.py
+Restart=on-failure
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

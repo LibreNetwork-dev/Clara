@@ -38,7 +38,7 @@ python mcontrol.py
 python timer.py
 
 cd ..
-python train.py
+#python train.py
 cd ..
 
 # package that stuff together 
@@ -49,4 +49,3 @@ cp -r scripts dist/scripts
 cp -r AI/fine_tuned dist/fine_tuned
 cp -r AI/exec.py dist/exec.py
 mkdir -p dist/cache/music
-
