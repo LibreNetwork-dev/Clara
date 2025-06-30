@@ -3,23 +3,23 @@ set -e
 
 install_debian() {
   sudo apt update
-  sudo apt install -y mpv wl-clipboard xclip make gcc libreadline-dev
+  sudo apt install -y mpv wl-clipboard xclip make gcc libreadline-dev python3.13-dev
 }
 
 install_fedora() {
-  sudo dnf install -y mpv wl-clipboard xclip make gcc readline-devel
+  sudo dnf install -y mpv wl-clipboard xclip make gcc readline-devel python3.13-devel
 }
 
 install_arch() {
-  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip base-devel
+  sudo pacman -Sy --noconfirm mpv wl-clipboard xclip base-devel python
 }
 
 install_alpine() {
-  sudo apk add mpv wl-clipboard xclip make gcc readline-dev musl-dev
+  sudo apk add mpv wl-clipboard xclip make gcc readline-dev musl-dev python3-dev 
 }
 
 install_opensuse() {
-  sudo zypper install -y mpv wl-clipboard xclip make gcc readline-devel
+  sudo zypper install -y mpv wl-clipboard xclip make gcc readline-devel python3-devel
 }
 
 if [ -f /etc/os-release ]; then
@@ -47,7 +47,10 @@ if [ -f /etc/os-release ]; then
       ;;
   esac
   pip install --upgrade pip
-  pip install sentence-transformers torch datasets transformers[torch]
+  pip install sentence-transformers torch datasets transformers[torch] evdev pygame
+  sudo usermod -aG input $USER
+  newgrp input
+
 else
   echo "cant detect distro (/etc/os-release not found)"
   exit 1
