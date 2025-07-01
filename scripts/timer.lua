@@ -22,4 +22,7 @@ function setTimer(sec, min, hr)
         dict:string:variant: \
         int32:5000
     ]]))
+    os.execute(
+        "play -n synth 2 sine 500"
+    )
 end 
