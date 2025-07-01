@@ -38,7 +38,7 @@ python mcontrol.py
 python timer.py
 
 cd ..
-#python train.py
+python train.py
 cd ..
 
 # package that stuff together 

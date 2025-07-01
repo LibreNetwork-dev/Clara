@@ -9,7 +9,7 @@ REAL_USER=$(logname)
 USER_HOME=$(eval echo "~$REAL_USER")
 USER_UNIT_DIR="$USER_HOME/.config/systemd/user"
 
-echo "🛑 Uninstalling $SERVICE_NAME for user $REAL_USER..."
+echo "Uninstalling $SERVICE_NAME for user $REAL_USER..."
 
 echo "[1/4] Stopping user service (if running)..."
 sudo runuser -l "$REAL_USER" -c \
@@ -31,8 +31,8 @@ sudo runuser -l "$REAL_USER" -c \
   'XDG_RUNTIME_DIR=/run/user/$(id -u) systemctl --user daemon-reload'
 
 if [[ -d "$BIN_DIR" ]]; then
-    echo "🧹 Removing $BIN_DIR..."
+    echo "Removing $BIN_DIR..."
     sudo rm -rf "$BIN_DIR"
 fi
 
-echo "✅ Clara was uninstalled successfully."
+echo "Uninstalled successfully."
