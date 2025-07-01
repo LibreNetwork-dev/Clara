@@ -23,6 +23,11 @@ function setTimer(sec, min, hr)
         int32:5000
     ]]))
     os.execute(
-        "play -n synth 2 sine 500"
+        [[
+        play -n synth 0.6 sine 349.23 : \
+         synth 0.6 sine 440.00 : \
+         synth 0.6 sine 523.25 : \
+         synth 1 sine 659.25
+        ]]
     )
 end 
