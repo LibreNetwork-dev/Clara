@@ -7,6 +7,7 @@ from evdev import InputDevice, categorize, ecodes, list_devices
 import pygame
 import os
 import time
+import sys
 
 model_path = "./fine_tuned"
 tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -58,9 +59,18 @@ def get_instruction():
     os.environ["SDL_VIDEO_X11_NET_WM_STATE"] = "_NET_WM_STATE_SKIP_TASKBAR,_NET_WM_STATE_ABOVE"
 
     pygame.init()
-    screen = pygame.display.set_mode((600, 100), pygame.NOFRAME)
+
+    in_ = pygame.display.Info()
+    
+    vw = in_.current_w
+    vh = in_.current_h
+    
+    current_w = int(vw*0.9)
+    current_h = int(vh*0.05)
+    
+    screen = pygame.display.set_mode((current_w, current_h), pygame.NOFRAME)
     pygame.display.set_caption("Assistant")
-    font = pygame.font.Font(None, 48)
+    font = pygame.font.Font(None, (int(vh*0.05)))
     clock = pygame.time.Clock()
 
     input_text = ""
@@ -73,7 +83,11 @@ def get_instruction():
 
     while True:
         now = time.time()
-        screen.fill((20, 20, 20))
+        
+        screen.fill((30, 40, 49))
+        radius = 20
+        pygame.draw.rect(screen, (30, 39, 50), (0, 0, current_w, current_h), border_radius=radius)
+
 
         # Blink cursor
         if now - last_cursor_toggle >= cursor_interval:
@@ -82,7 +96,8 @@ def get_instruction():
 
         display_text = input_text + ('|' if cursor_visible else '')
         text_surface = font.render(display_text, True, (255, 255, 255))
-        screen.blit(text_surface, (20, 25))
+        text_rect = text_surface.get_rect(center=(current_w // 2, current_h // 2))
+        screen.blit(text_surface, text_rect)
         pygame.display.flip()
 
         keys = pygame.key.get_pressed()
@@ -111,7 +126,7 @@ def get_instruction():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     pygame.quit()
-                    sys.exit()
+                    return ''
                 elif event.key == pygame.K_RETURN:
                     pygame.quit()
                     return input_text

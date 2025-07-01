@@ -25,7 +25,7 @@ cp dist/yt-dlp ../bin/yt-dlp
 cd .. 
 rm -rf yt-dlp
 
-
+# Train the ai (gen data + train)
 cd AI
 rm -rf data
 mkdir data
@@ -36,7 +36,6 @@ python music.py
 python math.py
 python mcontrol.py
 python timer.py
-
 cd ..
 python train.py
 cd ..
